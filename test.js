@@ -1,22 +1,16 @@
 /* eslint-env mocha */
 
 import expect from 'expect-to'
-import { deepEqual, equal, exist } from 'expect-to-core'
+import { deepEqual, equal, exist, throws } from 'expect-to-core'
 import compareErrors from './src'
 
 describe('compare errors', () => {
   it('throws exception when no arguments specified', () => {
     const err = new Error()
-    let thrownError = null;
 
-    try {
-      compareErrors()(err)
-    } catch (e) {
-      thrownError = e;
-    }
-
-    expect(thrownError).to(exist)
-    expect(thrownError.message).to(equal('Invariant Violation: Either constructor or message must be specified'))
+    expect(() => {
+      compareErrors()(err);
+    }).to(throws('Invariant Violation: Either constructor or message must be specified'));
   })
 
   describe('when instance', () => {
