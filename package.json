@@ -1,5 +1,5 @@
 {
-  "name": "compare-erros",
+  "name": "compare-errors",
   "version": "0.1.0",
   "description": "Compare errors based on instance, constructor and message",
   "keywords": [
